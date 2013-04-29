@@ -6,7 +6,7 @@ Ported from [@danillotuhumury's work](https://github.com/danillotuhumury/klimato
 ## Installation
 
 ```shell
-$ dashing-js install GIST_ID
+$ dashing-js install https://github.com/fabiocaseri/klimato-dashing-js-widget/archive/master.zip
 ```
 
 ##Usage
