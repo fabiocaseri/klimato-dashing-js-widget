@@ -15,21 +15,21 @@ function fetchWeather() {
     if (res.statusCode == 200) {
       var body = '';
       res.on('data', function(chunk) {
-      	body += chunk;
+        body += chunk;
       });
       res.on('end', function() {
-      	body = JSON.parse(body);
-      	var results = body.query.results;
-      	if (results) {
-      	  var condition = results.channel.item.condition;
-      	  var location = results.channel.location;
-      	  send_event('klimato', {
-      	  	location: location.city,
-      	  	temperature: condition.temp,
-      	  	code: condition.code,
-      	  	format: format
-      	  });
-      	}
+        body = JSON.parse(body);
+        var results = body.query.results;
+        if (results) {
+          var condition = results.channel.item.condition;
+          var location = results.channel.location;
+          send_event('klimato', {
+            location: location.city,
+            temperature: condition.temp,
+            code: condition.code,
+            format: format
+          });
+        }
       });
     } else {
       console.log('Yahoo Weather status code: ' + res.statusCode);
